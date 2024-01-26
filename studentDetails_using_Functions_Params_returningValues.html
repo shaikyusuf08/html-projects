@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>
+            Demonstrating Functions with params, returning values - Student Details
+        </title>
+    </head>
+    <body>
+        <script>
+            
+            var readStudentData = () => {
+                var sname, sage, sGender, marks, total = 0, avg, grade;
+                sname = prompt("Enter student name");
+                sage = prompt("Enter age");
+                sGender = prompt("Enter Gender");
+                marks = [];
+                for (var i = 0; i < 5; i++) {
+                    marks[i] = prompt("Enter marks for sub " + i);
+                    marks[i] = parseInt(marks[i]);
+                }
+                var result = getTotalAndAvg(marks); // result = [345, 45.6]
+                total = result[0];
+                avg = result[1];
+                var grade = getGrade(avg);
+                displayData(sname, sage, sGender, total, avg, grade);
+            }
+            
+            var getTotalAndAvg = (marks) => {
+                var total = 0;
+                for (var i = 0; i < 5; i++) {
+                    total += marks[i];
+                }
+                avg = total / marks.length;
+
+                return [total, avg];
+            }
+
+            var getGrade = (avg) => {
+                if (avg >= 40) {
+                    grade = 'Passed';
+                } else {
+                    grade = 'Surprise';
+                }
+                return  grade; // return "passed";
+            }
+
+            var displayData = (sname, sage, gender, total, avg, grade) => {
+                console.log("Name is " + sname);
+                console.log("Age is " + sage);
+                console.log("Gender is " + gender);
+                console.log("Total is " + total);
+                console.log("AVg is " + avg);
+                console.log("GRade is " + grade);
+            }
+            readStudentData();
+        </script>
+    </body>
+</html>

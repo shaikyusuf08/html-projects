@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>
+            Demonstrating - Passing parameters
+        </title>
+    </head>
+    <body>
+        <script>
+            
+           
+
+            var readValues = () => {
+                var a1, a2;
+                a1 = prompt("Enter first value");
+                a1 = parseInt(a1);
+
+                a2 = prompt("Enter second value");
+                a2 = parseInt(a2); 
+                var sum = getAddition(a1, a2); 
+                console.log('The sum is ' + sum);
+            }
+
+            var getAddition = (p1, a2) => { 
+                var sum; 
+                var b = 90;
+                sum = p1 + a2;
+                return sum;
+                
+            }
+            readValues();
+        </script>
+    </body>
+</html>
