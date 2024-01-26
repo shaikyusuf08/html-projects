@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            var empName, empDep, empAge, empBasicSal, gender, pf, hra, taxValue, totalSal;
+
+            var readEmpDetails = () => {
+                empName = prompt("Enter value for empname");
+                empDep = prompt("Entr Department");
+                gender = prompt("Enter gender");
+                gender = gender.toLowerCase();
+                empBasicSal = prompt("Enter basic sal");
+                empBasicSal = parseInt(empBasicSal);
+                getPfAndHra();
+            }
+
+            var getPfAndHra = () => {
+                pf = (12 * empBasicSal) / 100;
+                hra = (24 * empBasicSal) / 100;
+                getTotalSal();
+            }
+
+            var getTotalSal = () => {
+                totalSal = empBasicSal + pf + hra;
+                getTotalTax();
+            }
+
+            var getTotalTax = () => {
+                var taxPercent;
+                
+                // if (gender == 'male' || gender == 'Male' || gender == 'MALE')
+
+                if (gender == 'male') {
+                    if (totalSal >= 500000) {
+                        taxPercent = 15;
+                    } else if (totalSal >= 300000) {
+                        taxPercent = 10;
+                    } else if (totalSal >= 200000) {
+                        taxPercent = 5
+                    } else {
+                        taxPercent = 0;
+                    }
+                } else { // female
+                    if (totalSal >= 500000) {
+                        taxPercent = 10;
+                    } else if (totalSal >= 300000) {
+                        taxPercent = 5;
+                    } else  {
+                        taxPercent = 0;
+                    }
+                }
+                taxValue = (totalSal * taxPercent) / 100;
+            }
+
+            var displayEmployeeData = () => {
+                readEmpDetails();
+                console.log("Employee Details");
+                console.log("Employee Name " + empName);
+                console.log("Employee Gender " + gender);
+                console.log("Department " + empDep);
+                console.log("Basic sal " + empBasicSal);
+                console.log("Total sal " + totalSal);
+                console.log("Total tax " + taxValue)
+            }
+
+            displayEmployeeData();
+
+            var takeInsurence = () => {
+                console.log("Could i access this " + totalSal);
+            }
+
+            takeInsurence();
+        </script>
+    </body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>
+            Demonstrating scope of variables
+        </title>
+    </head>
+    <body>
+        <script>
+            var name = 'RAj';
+            var a = 90; // Scope is global/public
+            function displayData() {
+                var b = 99; // Soope as local scope / private
+                name = 'Teena';
+
+                console.log("value of b is " + b);
+
+                function sample() { // Inner function
+                    console.log("am from sample")
+                }
+                sample();
+
+            }
+            sample();
+
+            displayData();
+            console.log("value of a is " + a);
+            
+        </script>
+    </body>
+</html>
